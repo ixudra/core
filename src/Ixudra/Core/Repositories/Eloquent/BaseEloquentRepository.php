@@ -49,6 +49,24 @@ abstract class BaseEloquentRepository {
         return $query;
     }
 
+    protected function applyForeignKeys($query, $foreignKeys, $filters = array())
+    {
+        foreach( $foreignKeys as $key ) {
+            if( !$this->hasKey( $filters, $key ) ) {
+                continue;
+            }
+
+            $query = $query->where($key, '=', $filters[ $key ]);
+        }
+
+        return $query;
+    }
+
+    protected function hasKey($filters, $key)
+    {
+        return ( array_key_exists($key, $filters) && $filters[ $key ] != 0 );
+    }
+
     protected function preProcessFilters($filters)
     {
         foreach( $filters as $key => $value ) {
