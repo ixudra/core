@@ -64,7 +64,12 @@ abstract class BaseEloquentRepository {
 
     protected function hasKey($filters, $key)
     {
-        return ( array_key_exists($key, $filters) && $filters[ $key ] != 0 );
+        return ( array_key_exists($key, $filters) && $filters[ $key ] != 0 && $filters[ $key ] != '' );
+    }
+
+    protected function hasString($filters, $key)
+    {
+        return ( array_key_exists($key, $filters) && $filters[ $key ] != '' );
     }
 
     protected function preProcessFilters($filters)
