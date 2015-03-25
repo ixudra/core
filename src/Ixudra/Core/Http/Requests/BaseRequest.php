@@ -10,9 +10,18 @@ abstract class BaseRequest extends FormRequest {
         return array_replace_recursive($this->getInput(), $this->files->all());
     }
 
-    public function getInput()
+    public function getInput($includeFiles = false)
     {
-        return $this->input();
+        $input = $this->input();
+
+        if( $includeFiles ) {
+            $input = array_merge(
+                $input,
+                $this->files->all()
+            );
+        }
+
+        return $input;
     }
 
     protected function convertToTruthyValue($input, $key)
