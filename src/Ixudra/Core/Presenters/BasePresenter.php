@@ -17,4 +17,13 @@ class BasePresenter extends Presenter {
         return Translate::recursive('common.'. $key);
     }
 
+    protected function short($string, $length = 200)
+    {
+        if( strlen( $string ) < $length ) {
+            return $string;
+        }
+
+        return substr( $string, 0, $length ) .'...';
+    }
+
 }
