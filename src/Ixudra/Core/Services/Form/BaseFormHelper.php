@@ -1,6 +1,8 @@
 <?php namespace Ixudra\Core\Services\Form;
 
 
+use Translate;
+
 abstract class BaseFormHelper {
 
     protected $repository;
@@ -43,6 +45,19 @@ abstract class BaseFormHelper {
                 'value'         => $model->name
             );
         }
+
+        return $results;
+    }
+
+    protected function getBooleanSelectList($includeNull = false)
+    {
+        $results = array();
+        if( $includeNull ) {
+            $results[ '' ] = Translate::recursive('common.both');
+        }
+
+        $results[ 0 ] = Translate::recursive('common.no');
+        $results[ 1 ] = Translate::recursive('common.yes');
 
         return $results;
     }
