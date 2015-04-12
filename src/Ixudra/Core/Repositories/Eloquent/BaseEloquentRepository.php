@@ -61,6 +61,18 @@ abstract class BaseEloquentRepository {
 
         return $query;
     }
+    protected function applyBoolean($query, $booleanKeys, $filters = array())
+    {
+        foreach( $booleanKeys as $key ) {
+            if( !$this->hasBoolean( $filters, $key ) ) {
+                continue;
+            }
+
+            $query = $query->where($key, '=', $filters[ $key ]);
+        }
+
+        return $query;
+    }
 
     protected function hasKey($filters, $key)
     {
@@ -68,6 +80,11 @@ abstract class BaseEloquentRepository {
     }
 
     protected function hasString($filters, $key)
+    {
+        return ( array_key_exists($key, $filters) && $filters[ $key ] != '' );
+    }
+
+    protected function hasBoolean($filters, $key)
     {
         return ( array_key_exists($key, $filters) && $filters[ $key ] != '' );
     }
