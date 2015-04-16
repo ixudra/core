@@ -43,15 +43,22 @@ abstract class BaseRequest extends FormRequest {
         $results = '';
         foreach( $rules as $key => $value ) {
             if( $forceOptional ) {
-                $value = str_replace('required|', '', $value);
-                $value = str_replace('|required', '', $value);
-                $value = str_replace('required', '', $value);
+                $value = $this->makeOptional( $value );
             }
 
             $results[ $prefix .'_'. $key ] = $value;
         }
 
         return $results;
+    }
+
+    protected function makeOptional($rule)
+    {
+        $rule = str_replace('required|', '', $rule);
+        $rule = str_replace('|required', '', $rule);
+        $rule = str_replace('required', '', $rule);
+
+        return $rule;
     }
 
 }
