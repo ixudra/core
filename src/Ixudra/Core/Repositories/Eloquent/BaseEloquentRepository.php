@@ -21,7 +21,7 @@ abstract class BaseEloquentRepository {
         return $results->get();
     }
 
-    public function search($filters, $resultsPerPage)
+    public function search($filters, $resultsPerPage = 25)
     {
         $results = $this->getModel();
 
@@ -29,7 +29,7 @@ abstract class BaseEloquentRepository {
             ->select($this->getTable() .'.*')
             ->paginate($resultsPerPage)
             ->appends($filters)
-            ->appends('results_per_page', $resultsPerPage);
+            ->appends('size', $resultsPerPage);
     }
 
     abstract protected function getModel();
@@ -93,12 +93,12 @@ abstract class BaseEloquentRepository {
     {
         foreach( $filters as $key => $value ) {
             if( $value === true ) {
-                $filters[$key] = '1';
+                $filters[ $key ] = '1';
                 continue;
             }
 
             if( $value === false ) {
-                $filters[$key] = '0';
+                $filters[ $key ] = '0';
                 continue;
             }
         }
