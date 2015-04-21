@@ -34,31 +34,4 @@ abstract class BaseRequest extends FormRequest {
         return $value;
     }
 
-    protected function getPrefixedRules($rules, $prefix = '', $forceOptional = false)
-    {
-        if( $prefix == '' ) {
-            return $rules;
-        }
-
-        $results = '';
-        foreach( $rules as $key => $value ) {
-            if( $forceOptional ) {
-                $value = $this->makeOptional( $value );
-            }
-
-            $results[ $prefix .'_'. $key ] = $value;
-        }
-
-        return $results;
-    }
-
-    protected function makeOptional($rule)
-    {
-        $rule = str_replace('required|', '', $rule);
-        $rule = str_replace('|required', '', $rule);
-        $rule = str_replace('required', '', $rule);
-
-        return $rule;
-    }
-
 }
