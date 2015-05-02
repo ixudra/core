@@ -6,22 +6,10 @@ use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Redirect;
 
+use Ixudra\Core\Traits\RedirectableTrait;
+
 abstract class BaseController extends Controller {
 
-    use DispatchesCommands, ValidatesRequests;
-
-
-    protected function redirect($route = 'index', $parameters = array(), $messageType = '', $messages = array())
-    {
-        $redirectResponse = Redirect::route($route, $parameters);
-
-        if( $messageType != '' ) {
-            $redirectResponse = $redirectResponse
-                ->with('messageType', $messageType)
-                ->with('messages', $messages);
-        }
-
-        return $redirectResponse;
-    }
+    use DispatchesCommands, ValidatesRequests, RedirectableTrait;
 
 }
