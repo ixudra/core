@@ -11,6 +11,10 @@ abstract class BaseFactory {
 
         $results = array();
         foreach( $keys as $key => $value ) {
+            if( array_key_exists( $prefix . $key, $input) ) {
+                $results[ $key ] = $input[ $prefix . $key ];
+            }
+
             $results[ $key ] = $input[ $prefix . $key ];
         }
 
