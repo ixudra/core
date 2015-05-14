@@ -9,7 +9,8 @@ class BaseViewFactory {
 
     protected $parameters = array(
         'messageType'       => '',
-        'messageValues'     => array()
+        'messageValues'     => array(),
+        'prefix'            => ''
     );
 
 
