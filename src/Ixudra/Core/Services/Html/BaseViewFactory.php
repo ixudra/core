@@ -16,16 +16,16 @@ class BaseViewFactory {
     public function notifyUser($type, $messages, $translate = true)
     {
         if( $translate ) {
-            $messages = $this->translateMessages($messages);
+            $messages = $this->translateMessages( $messages );
         }
 
-        $this->addParameter('messageType', $type);
-        $this->addParameter('messageValues', $messages);
+        $this->addParameter( 'messageType', $type );
+        $this->addParameter( 'messageValues', $messages );
     }
 
     protected function addParameter($key, $value)
     {
-        $this->parameters[$key] = $value;
+        $this->parameters[ $key ] = $value;
     }
 
     protected function makeView($view)

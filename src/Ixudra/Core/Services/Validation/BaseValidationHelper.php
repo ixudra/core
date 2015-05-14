@@ -9,11 +9,14 @@ abstract class BaseValidationHelper {
 
     public function makeOptional($rule)
     {
-        $rule = str_replace('required|', '', $rule);
-        $rule = str_replace('|required', '', $rule);
-        $rule = str_replace('required', '', $rule);
+        $conditions = explode('|', $rule);
+        foreach( $conditions as $key => $condition ) {
+            if( $condition == 'required' ) {
+                unset( $conditions[ $key ] );
+            }
+        }
 
-        return $rule;
+        return implode( '|', $conditions );
     }
 
     public function getRequiredFormFields($formName)

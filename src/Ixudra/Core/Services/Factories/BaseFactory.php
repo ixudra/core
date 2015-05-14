@@ -3,7 +3,7 @@
 
 abstract class BaseFactory {
 
-    protected function extractInput($input, $keys, $prefix = '')
+    protected function extractInput($input, $keys, $prefix = '', $includeDefaults = false)
     {
         if( $prefix != '' ) {
             $prefix = $prefix .'_';
@@ -11,11 +11,18 @@ abstract class BaseFactory {
 
         $results = array();
         foreach( $keys as $key => $value ) {
-            if( array_key_exists( $prefix . $key, $input) ) {
-                $results[ $key ] = $input[ $prefix . $key ];
+            if( !array_key_exists( $prefix . $key, $input) && !$includeDefaults ) {
+                continue;
             }
 
-            $results[ $key ] = $input[ $prefix . $key ];
+            if( array_key_exists( $prefix . $key, $input) ) {
+                $results[ $key ] = $input[ $prefix . $key ];
+                continue;
+            }
+
+            if( $includeDefaults ) {
+                $results[ $key ] = $value;
+            }
         }
 
         return $results;
