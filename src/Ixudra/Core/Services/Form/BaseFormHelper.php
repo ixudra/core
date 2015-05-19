@@ -30,7 +30,7 @@ abstract class BaseFormHelper {
         }
 
         foreach( $models as $model ) {
-            $results[ $model->id ] = $model->name;
+            $results[ $model->id ] = $this->getName( $model );
         }
 
         return $results;
@@ -42,11 +42,16 @@ abstract class BaseFormHelper {
         foreach( $models as $model ) {
             $results[] = array(
                 'data'          => $model->id,
-                'value'         => $model->name
+                'value'         => $this->getName( $model )
             );
         }
 
         return $results;
+    }
+
+    protected function getName($model)
+    {
+        return $model->name;
     }
 
     protected function getBooleanSelectList($includeNull = false)
