@@ -25,8 +25,13 @@ abstract class BaseEloquentRepository {
     {
         $results = $this->getModel();
 
+        return $this->paginated($filters, $resultsPerPage, $results);
+    }
+
+    protected function paginated($filters, $resultsPerPage, $results)
+    {
         return $results
-            ->select($this->getTable() .'.*')
+            ->select($this->getTable().'.*')
             ->paginate($resultsPerPage)
             ->appends($filters)
             ->appends('size', $resultsPerPage);
