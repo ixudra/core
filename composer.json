@@ -1,7 +1,7 @@
 {
     "name": "ixudra/core",
     "description": "Custom PHP Core library for the Laravel 5 framework - developed by Ixudra",
-    "version": "5.0.8",
+    "version": "5.0.9",
     "keywords": ["Ixudra", "Laravel", "Core", "Project"],
     "homepage": "http://ixudra.be",
     "license": "MIT",
