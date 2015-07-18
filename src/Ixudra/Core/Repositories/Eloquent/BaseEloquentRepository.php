@@ -21,20 +21,20 @@ abstract class BaseEloquentRepository {
         return $results->get();
     }
 
-    public function search($filters, $resultsPerPage = 25)
+    public function search($filters, $size = 25)
     {
         $results = $this->getModel();
 
-        return $this->paginated($filters, $resultsPerPage, $results);
+        return $this->paginated($results, $filters, $size);
     }
 
-    protected function paginated($filters, $resultsPerPage, $results)
+    protected function paginated($results, $filters = array(), $size = 25)
     {
         return $results
-            ->select($this->getTable().'.*')
-            ->paginate($resultsPerPage)
+            ->select($this->getTable() .'.*')
+            ->paginate($size)
             ->appends($filters)
-            ->appends('size', $resultsPerPage);
+            ->appends('size', $size);
     }
 
     abstract protected function getModel();
