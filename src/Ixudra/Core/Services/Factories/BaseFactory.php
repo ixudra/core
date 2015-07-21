@@ -28,4 +28,27 @@ abstract class BaseFactory {
         return $results;
     }
 
+    protected function preventXss($value)
+    {
+        $string = strtolower( html_entity_decode( $value ) );
+
+        if (strpos($string, '<script>') !== false) {
+            $value = '';
+        }
+
+        if (strpos($string, 'javascript') !== false) {
+            $value = '';
+        }
+
+        if (strpos($string, 'fromcharcode') !== false) {
+            $value = '';
+        }
+
+        if (strpos($string, '&#x') !== false) {
+            $value = '';
+        }
+
+        return $value;
+    }
+
 }

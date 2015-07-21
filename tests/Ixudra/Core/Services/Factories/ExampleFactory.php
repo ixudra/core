@@ -10,4 +10,9 @@ class ExampleFactory extends BaseFactory {
         return $this->extractInput( $input, $keys, $prefix, $includeDefault );
     }
 
+    public function getPreventedXssOutput($value)
+    {
+        return $this->preventXss( $value );
+    }
+
 }
