@@ -1,9 +1,9 @@
 <?php namespace Ixudra\Core\Services\Html;
 
 
-use \Auth;
-use \View;
-use \Translate;
+use Auth;
+use View;
+use Translate;
 
 class BaseViewFactory {
 
@@ -27,6 +27,14 @@ class BaseViewFactory {
     protected function addParameter($key, $value)
     {
         $this->parameters[ $key ] = $value;
+    }
+
+    protected function addParameterMap($parameterMap)
+    {
+        $this->parameters = array_merge(
+            $this->parameters,
+            $parameterMap
+        );
     }
 
     protected function makeView($view)
