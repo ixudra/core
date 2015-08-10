@@ -5,7 +5,7 @@ abstract class BaseValidationHelper {
 
     abstract public function getFilterValidationRules();
 
-    abstract public function getFormValidationRules($formName);
+    abstract public function getFormValidationRules($formName, $prefix = '');
 
     public function makeOptional($rule)
     {
@@ -19,9 +19,9 @@ abstract class BaseValidationHelper {
         return implode( '|', $conditions );
     }
 
-    public function getRequiredFormFields($formName)
+    public function getRequiredFormFields($formName, $prefix = '')
     {
-        $rules = $this->getFormValidationRules( $formName );
+        $rules = $this->getFormValidationRules( $formName, $prefix );
 
         $requiredFields = array();
         foreach( $rules as $key => $value ) {
