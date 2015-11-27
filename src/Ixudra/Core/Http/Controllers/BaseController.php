@@ -1,15 +1,14 @@
 <?php namespace Ixudra\Core\Http\Controllers;
 
 
-use Illuminate\Foundation\Bus\DispatchesCommands;
-use Illuminate\Routing\Controller;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Routing\Controller;
 
 use Ixudra\Core\Traits\RedirectableTrait;
 
 abstract class BaseController extends Controller {
 
-    use DispatchesCommands, ValidatesRequests, RedirectableTrait;
+    use DispatchesJobs, ValidatesRequests, RedirectableTrait;
 
 }
