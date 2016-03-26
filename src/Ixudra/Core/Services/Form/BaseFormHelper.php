@@ -11,6 +11,7 @@ abstract class BaseFormHelper {
     /** @var BaseEloquentRepository */
     protected $repository;
 
+
     /**
      * Return all models in the repository as a select list
      *
