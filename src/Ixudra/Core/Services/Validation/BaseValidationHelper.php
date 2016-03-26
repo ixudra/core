@@ -3,10 +3,29 @@
 
 abstract class BaseValidationHelper {
 
+    /**
+     * Return the validation rules that need to be applied to filter a specific model
+     *
+     * @return array
+     */
     abstract public function getFilterValidationRules();
 
+    /**
+     * Return the validation rules that need to be applied to a specific model form
+     *
+     * @param   string $formName        Name of the form for which the rules will be used
+     * @param   string $prefix          Prefix that is to be applied to the form rules
+     * @return array
+     */
     abstract public function getFormValidationRules($formName, $prefix = '');
 
+    /**
+     * Force a particular rule to be optional. This method will remove the 'required` option from the rule entirely and
+     * leave all other validation rules intact
+     *
+     * @param   string $rule        Rule to be modified
+     * @return string
+     */
     public function makeOptional($rule)
     {
         $conditions = explode('|', $rule);
@@ -19,6 +38,13 @@ abstract class BaseValidationHelper {
         return implode( '|', $conditions );
     }
 
+    /**
+     * Return an array of all form rules that are required
+     *
+     * @param   string $formName        Name of the form for which the rules will be used
+     * @param   string $prefix          Prefix that is to be applied to the form rules
+     * @return array
+     */
     public function getRequiredFormFields($formName, $prefix = '')
     {
         $rules = $this->getFormValidationRules( $formName, $prefix );
@@ -33,6 +59,12 @@ abstract class BaseValidationHelper {
         return $requiredFields;
     }
 
+    /**
+     * Verify if a rule is required
+     *
+     * @param   string $rule        Rule to be verified
+     * @return bool
+     */
     protected function isRequired($rule)
     {
         $conditions = explode('|', $rule);
@@ -43,6 +75,14 @@ abstract class BaseValidationHelper {
         return false;
     }
 
+    /**
+     * Return the validation rules that need to be applied to a specific model form
+     *
+     * @param   array $rules                Name of the form for which the rules will be used
+     * @param   string $prefix              Prefix that is to be applied to the form rules
+     * @param   boolean $forceOptional      Force all rules to be optional
+     * @return array
+     */
     protected function getPrefixedRules($rules, $prefix = '', $forceOptional = false)
     {
         if( $prefix == '' ) {
