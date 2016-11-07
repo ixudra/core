@@ -107,4 +107,23 @@ abstract class BaseFormHelper {
         return $results;
     }
 
+    /**
+     * Return an inverse yes-no select list
+     *
+     * @param   bool $includeNull   Indicate whether or not a null value is to be included in the result list
+     * @return array
+     */
+    protected function getInverseBooleanSelectList($includeNull = false)
+    {
+        $results = array();
+        if( $includeNull ) {
+            $results[ '' ] = Translate::recursive('common.both');
+        }
+
+        $results[ 0 ] = Translate::recursive('common.yes');
+        $results[ 1 ] = Translate::recursive('common.no');
+
+        return $results;
+    }
+
 }
