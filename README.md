@@ -28,7 +28,7 @@ Add the service provider to your `config/app.php` file
     providers     => array(
 
         //...
-        'Ixudra\Core\CoreServiceProvider',
+        Ixudra\Core\CoreServiceProvider::class,
 
     )
 
