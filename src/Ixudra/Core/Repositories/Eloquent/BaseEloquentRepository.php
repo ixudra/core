@@ -76,14 +76,14 @@ abstract class BaseEloquentRepository {
     /**
      * Return a new instance of the repository model
      *
-     * @return Model
+     * @return Builder
      */
     abstract protected function getModel();
 
     /**
      * Return the name of the repository table
      *
-     * @return Model
+     * @return string
      */
     abstract protected function getTable();
 
