@@ -10,7 +10,7 @@ class BaseViewFactory {
     /** @var array $parameters  Parameters to passed along to the view */
     protected $parameters = array(
         'messageType'       => '',
-        'messageValues'     => array(),
+        'messages'          => array(),
         'prefix'            => ''
     );
 
@@ -28,7 +28,7 @@ class BaseViewFactory {
         }
 
         $this->addParameter( 'messageType', $type );
-        $this->addParameter( 'messageValues', $messages );
+        $this->addParameter( 'messages', $messages );
     }
 
     /**
