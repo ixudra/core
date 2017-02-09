@@ -12,15 +12,6 @@ class CoreServiceProvider extends ServiceProvider {
      */
     protected $defer = false;
 
-    /**
-     * Bootstrap the application events.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->package('ixudra/core');
-    }
 
     /**
      * Register the service provider.
