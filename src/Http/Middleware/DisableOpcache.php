@@ -12,12 +12,12 @@ class DisableOpcache {
      * possible in order to improve the user experience
      *
      * @param $request
-     * @param callable $next
+     * @param Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-        if( env('APP_ENV') != 'production' && function_exists( 'opcache_reset' ) ) {
+        if( env('APP_ENV') !== 'production' && function_exists( 'opcache_reset' ) ) {
             opcache_reset();
         }
 

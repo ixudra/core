@@ -38,7 +38,7 @@ abstract class BaseInputHelper {
             return $input;
         }
 
-        $results = '';
+        $results = array();
         foreach( $input as $key => $value ) {
             $results[ $prefix .'_'. $key ] = $value;
         }

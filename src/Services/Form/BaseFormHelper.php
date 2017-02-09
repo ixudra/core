@@ -4,6 +4,7 @@
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Ixudra\Core\Repositories\Eloquent\BaseEloquentRepository;
+
 use Translate;
 
 abstract class BaseFormHelper {

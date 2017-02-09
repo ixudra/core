@@ -30,7 +30,7 @@ abstract class BaseValidationHelper {
     {
         $conditions = explode('|', $rule);
         foreach( $conditions as $key => $condition ) {
-            if( $condition == 'required' ) {
+            if( $condition === 'required' ) {
                 unset( $conditions[ $key ] );
             }
         }
@@ -89,7 +89,7 @@ abstract class BaseValidationHelper {
             return $rules;
         }
 
-        $results = '';
+        $results = array();
         foreach( $rules as $key => $value ) {
             if( $forceOptional ) {
                 $value = $this->makeOptional( $value );

@@ -1,9 +1,9 @@
 <?php namespace Ixudra\Core\Presenters;
 
 
-use Translate;
-
 use Laracasts\Presenter\Presenter;
+
+use Translate;
 
 class BasePresenter extends Presenter {
 

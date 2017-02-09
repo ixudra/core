@@ -80,7 +80,7 @@ class BaseViewFactory {
     {
         $results = array();
         foreach( $messages as $message ) {
-            array_push( $results, Translate::message($message) );
+            $results[] = Translate::message($message);
         }
 
         return $results;
