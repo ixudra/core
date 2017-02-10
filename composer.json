@@ -31,7 +31,5 @@
         "psr-4": {
             "Ixudra\\Core\\": "src/"
         }
-    },
-
-    "minimum-stability": "stable"
+    }
 }
