@@ -34,7 +34,7 @@ abstract class BaseCommand extends LaravelCommand {
      * in your command as this will make this base class obsolete. Instead, you should implement the executeCommand and
      * move all your production code there. It will then be picked up by the fire() method and executed correctly.
      */
-    public function fire()
+    public function handle()
     {
         $isSuccessful = true;
 
@@ -69,7 +69,7 @@ abstract class BaseCommand extends LaravelCommand {
      * Execute the main task of the artisan command. This method should contain all the production code that needs to
      * be executed when the command is triggered via artisan
      */
-    protected abstract function executeCommand();
+    abstract protected function executeCommand();
 
     /**
      * Reconstruct the full command name (including arguments and options) so we can store it in the database and check
@@ -106,7 +106,7 @@ abstract class BaseCommand extends LaravelCommand {
      *
      * @param   array $context      Contains a list of parameters that can be used to provide more useful information to the user
      */
-    protected function printStartMessage($context = array())
+    protected function printStartMessage(array $context = array())
     {
         if( $this->getOutput()->getVerbosity() >= OutputInterface::VERBOSITY_VERY_VERBOSE ) {
             $this->info( $this->getStartMessage( $context ) );
@@ -119,7 +119,7 @@ abstract class BaseCommand extends LaravelCommand {
      *
      * @param   array $context      Contains a list of parameters that can be used to provide more useful information to the user
      */
-    protected abstract function getStartMessage($context = array());
+    abstract protected function getStartMessage(array $context = array());
 
     /**
      * Print a message indicating that the command has skipped processing an entry in the data set that is being
@@ -127,7 +127,7 @@ abstract class BaseCommand extends LaravelCommand {
      *
      * @param   array $context      Contains a list of parameters that can be used to provide more useful information to the user
      */
-    protected function printSkippedMessage($context = array())
+    protected function printSkippedMessage(array $context = array())
     {
         if( $this->getOutput()->getVerbosity() >= OutputInterface::VERBOSITY_VERY_VERBOSE ) {
             $this->info( $this->getSkippedMessage( $context ) );
@@ -140,7 +140,7 @@ abstract class BaseCommand extends LaravelCommand {
      *
      * @param   array $context      Contains a list of parameters that can be used to provide more useful information to the user
      */
-    protected abstract function getSkippedMessage($context = array());
+    abstract protected function getSkippedMessage(array $context = array());
 
     /**
      * Print a message indicating that the command has successfully processed an entry in the data set that is being
@@ -148,10 +148,10 @@ abstract class BaseCommand extends LaravelCommand {
      *
      * @param   array $context      Contains a list of parameters that can be used to provide more useful information to the user
      */
-    protected function printSuccessMessage($context = array())
+    protected function printSuccessMessage(array $context = array())
     {
         if( $this->getOutput()->getVerbosity() >= OutputInterface::VERBOSITY_VERY_VERBOSE ) {
-            $this->info( $this->getsuccessMessage( $context ) );
+            $this->info( $this->getSuccessMessage( $context ) );
         } else if( $this->getOutput()->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE ) {
             $this->output->write('.');
         }
@@ -163,7 +163,7 @@ abstract class BaseCommand extends LaravelCommand {
      *
      * @param   array $context      Contains a list of parameters that can be used to provide more useful information to the user
      */
-    protected abstract function getSuccessMessage($context = array());
+    abstract protected function getSuccessMessage(array $context = array());
 
     /**
      * Print a message indicating that the command has failed to process an entry in the data set that is being
@@ -171,7 +171,7 @@ abstract class BaseCommand extends LaravelCommand {
      *
      * @param   array $context      Contains a list of parameters that can be used to provide more useful information to the user
      */
-    protected function printErrorMessage($context = array())
+    protected function printErrorMessage(array $context = array())
     {
         if( $this->getOutput()->getVerbosity() >= OutputInterface::VERBOSITY_VERY_VERBOSE ) {
             $this->error( $this->getErrorMessage( $context ) );
@@ -186,7 +186,7 @@ abstract class BaseCommand extends LaravelCommand {
      *
      * @param   array $context      Contains a list of parameters that can be used to provide more useful information to the user
      */
-    protected abstract function getErrorMessage($context = array());
+    abstract protected function getErrorMessage(array $context = array());
 
     /**
      * Print a concise report describing if and which errors have occurred during the execution of the artisan command
@@ -197,7 +197,7 @@ abstract class BaseCommand extends LaravelCommand {
         if( !$this->errorOccurred() ) {
             $this->info('0 errors encountered.');
         } else {
-            $this->error( sizeof($this->messages->get('error')) .' error(s) encountered' );
+            $this->error( count($this->messages->get('error')) .' error(s) encountered' );
             foreach( $this->messages->get('error') as $error ) {
                 $this->error( $error );
             }
