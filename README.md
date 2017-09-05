@@ -20,7 +20,7 @@ Pull this package in through Composer.
 
     {
         "require": {
-            "ixudra/core": "5.*"
+            "ixudra/core": "6.*"
         }
     }
 
@@ -30,7 +30,7 @@ Add the service provider to your `config/app.php` file
 
 ```php
 
-    providers     => array(
+    'providers'         => array(
 
         //...
         Ixudra\Core\CoreServiceProvider::class,
@@ -58,7 +58,16 @@ The package provides several base classes that can be used during the developmen
 
 ```
 
+Please review the specific source files for a full overview of the available features of the package. Every function has detailed comments and annotations.
+
 That's all there is to it! Have fun!
+
+
+
+
+## Support
+
+Help me further develop and maintain this package by supporting me via [Patreon][https://www.patreon.com/ixudra]!!
 
 
 
@@ -72,7 +81,12 @@ This package is open-sourced software licensed under the [MIT license](http://op
 
 ## Contact
 
+For package questions, bug, suggestions and/or feature requests, please use the Github issue system and/or submit a pull request. When submitting an issue, always provide a detailed explanation of your problem, any response or feedback your get, log messages that might be relevant as well as a source code example that demonstrates the problem. If not, I will most likely not be able to help you with your problem.
+
+For any other questions, feel free to use the credentials listed below: 
+
 Jan Oris (developer)
 
 - Email: jan.oris@ixudra.be
 - Telephone: +32 496 94 20 57
+

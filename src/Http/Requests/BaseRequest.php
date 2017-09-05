@@ -5,7 +5,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 abstract class BaseRequest extends FormRequest {
 
-    public function all()
+    public function all($keys = null)
     {
         return array_replace_recursive($this->getInput(), $this->files->all());
     }
