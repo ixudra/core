@@ -67,7 +67,7 @@ That's all there is to it! Have fun!
 
 ## Support
 
-Help me further develop and maintain this package by supporting me via [Patreon][https://www.patreon.com/ixudra]!!
+Help me further develop and maintain this package by supporting me via [Patreon](https://www.patreon.com/ixudra)!!
 
 
 
