@@ -5,6 +5,14 @@ use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseInputHelper {
 
+    protected $immutableAttributes = array(
+        'id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    );
+
+
     /**
      * Return the default input values for a particular form or model
      *
@@ -44,6 +52,22 @@ abstract class BaseInputHelper {
         }
 
         return $results;
+    }
+
+    /**
+     * Return all relevant attributes for a given model
+     *
+     * @param   Model $model        The model for which we would like to return the attributes
+     * @return array
+     */
+    protected function getAttributes($model)
+    {
+        $attributes = $model->attributesToArray();
+        foreach( $this->immutableAttributes as $attribute ) {
+            unset( $attributes[ $attribute] );
+        }
+
+        return $attributes;
     }
 
     /**
