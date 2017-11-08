@@ -20,7 +20,7 @@ Trait RedirectableTrait {
     {
         $redirectResponse = Redirect::route($route, $parameters);
 
-        if( $messageType != '' ) {
+        if( $messageType !== '' ) {
             $redirectResponse = $redirectResponse
                 ->with('messageType', $messageType)
                 ->with('messages', $messages);

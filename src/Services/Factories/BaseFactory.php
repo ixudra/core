@@ -15,8 +15,8 @@ abstract class BaseFactory {
      */
     protected function extractInput($input, $keys, $prefix = '', $includeDefaults = false)
     {
-        if( $prefix != '' ) {
-            $prefix = $prefix .'_';
+        if( $prefix !== '' ) {
+            $prefix .= '_';
         }
 
         $results = array();

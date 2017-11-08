@@ -14,6 +14,7 @@ class BaseViewFactory {
         'prefix'            => ''
     );
 
+
     /**
      * Add a notification for the user to the parameter array
      *
@@ -21,7 +22,7 @@ class BaseViewFactory {
      * @param   array $messages     Array of message or translation keys that are to be shown to the user
      * @param   bool $translate     Indicate whether or not the messages should be translated
      */
-    public function notifyUser($type, $messages, $translate = true)
+    public function notifyUser($type, array $messages, $translate = true)
     {
         if( $translate ) {
             $messages = $this->translateMessages( $messages );
@@ -35,7 +36,7 @@ class BaseViewFactory {
      * Add a parameter to the parameter array
      *
      * @param   string $key         Name of the parameter, as it should be known in the view
-     * @param   string $value       Value of the of parameter
+     * @param   mixed $value        Value of the of parameter
      */
     protected function addParameter($key, $value)
     {
@@ -47,7 +48,7 @@ class BaseViewFactory {
      *
      * @param   array $parameterMap     Array of parameter, as they should be known in the view
      */
-    protected function addParameterMap($parameterMap)
+    protected function addParameterMap(array $parameterMap)
     {
         $this->parameters = array_merge(
             $this->parameters,
@@ -76,7 +77,7 @@ class BaseViewFactory {
      * @param   array $messages     Array of messages to be translated
      * @return array
      */
-    protected function translateMessages($messages)
+    protected function translateMessages(array $messages)
     {
         $results = array();
         foreach( $messages as $message ) {

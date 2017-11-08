@@ -2,6 +2,11 @@
 
 All Notable changes to `ixudra/core` will be documented in this file
 
+## 6.2.0 - 2017-11-08
+### Added
+- Updated BaseRequest to set null fields to empty string
+
+
 ## 6.1.0 - 2017-10-13
 ### Added
 - Updated BaseInputHelper to remove immutable attributes from models

@@ -34,4 +34,19 @@ abstract class BaseRequest extends FormRequest {
         return $value;
     }
 
+    protected function removeIfEmpty(array $input, array $keys = array(), $prefix = '')
+    {
+        foreach( $keys as $key ) {
+            if( !empty($prefix) ) {
+                $key = $prefix .'_'. $key;
+            }
+
+            if( array_key_exists($key, $input) && empty($input[ $key ]) ) {
+                $input[ $key ] = '';
+            }
+        }
+
+        return $input;
+    }
+
 }

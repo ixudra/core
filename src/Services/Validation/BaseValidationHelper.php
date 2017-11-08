@@ -47,8 +47,17 @@ abstract class BaseValidationHelper {
      */
     public function getRequiredFormFields($formName, $prefix = '')
     {
-        $rules = $this->getFormValidationRules( $formName, $prefix );
+        return $this->getRequiredFields( $this->getFormValidationRules( $formName, $prefix ) );
+    }
 
+    /**
+     * Return an array of all form rules that are required
+     *
+     * @param   array $rules            Validation rules from which the required fields are to be extracted
+     * @return array
+     */
+    protected function getRequiredFields(array $rules)
+    {
         $requiredFields = array();
         foreach( $rules as $key => $value ) {
             if( $this->isRequired( $value ) ) {
