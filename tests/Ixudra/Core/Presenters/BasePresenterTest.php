@@ -1,7 +1,9 @@
 <?php
 
 
-class BasePresenterTest extends PHPUnit_Framework_TestCase {
+use PHPUnit\Framework\TestCase;
+
+class BasePresenterTest extends TestCase {
 
     /**
      * @covers \Ixudra\Core\Presenters\BasePresenter::short()

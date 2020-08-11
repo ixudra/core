@@ -10,7 +10,7 @@ class ExampleValidationHelper extends BaseValidationHelper {
         // ...
     }
 
-    public function getFormValidationRules($formName)
+    public function getFormValidationRules($formName, $prefix = '')
     {
         return array(
             'Foo_name'              => 'required|max:60',

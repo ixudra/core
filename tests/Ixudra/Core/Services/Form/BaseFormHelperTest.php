@@ -2,8 +2,9 @@
 
 
 use Illuminate\Support\Collection;
+use PHPUnit\Framework\TestCase;
 
-class BaseFormHelperTest extends PHPUnit_Framework_TestCase {
+class BaseFormHelperTest extends TestCase {
 
     const MODEL_ID_1 = 11;
 

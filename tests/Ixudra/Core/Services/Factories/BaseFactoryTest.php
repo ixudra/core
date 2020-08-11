@@ -1,7 +1,9 @@
 <?php
 
 
-class BaseFactoryTest extends PHPUnit_Framework_TestCase {
+use PHPUnit\Framework\TestCase;
+
+class BaseFactoryTest extends TestCase {
 
     /**
      * @covers \Ixudra\Core\Services\Factories\BaseFactory::extractInput()
