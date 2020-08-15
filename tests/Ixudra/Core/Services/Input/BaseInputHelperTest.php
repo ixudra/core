@@ -1,7 +1,9 @@
 <?php
 
 
-class BaseInputHelperTest extends PHPUnit_Framework_TestCase {
+use PHPUnit\Framework\TestCase;
+
+class BaseInputHelperTest extends TestCase {
 
     /**
      * @covers \Ixudra\Core\Services\Input\BaseInputHelper::getInputForModel()

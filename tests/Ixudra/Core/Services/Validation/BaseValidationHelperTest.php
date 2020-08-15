@@ -2,8 +2,9 @@
 
 
 use Illuminate\Support\Collection;
+use PHPUnit\Framework\TestCase;
 
-class BaseValidationHelperTest extends PHPUnit_Framework_TestCase {
+class BaseValidationHelperTest extends TestCase {
 
     /**
      * @covers \Ixudra\Core\Services\Validation\BaseValidationHelper::getRequiredFormFields()
