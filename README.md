@@ -3,10 +3,12 @@ ixudra/core
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ixudra/core.svg?style=flat-square)](https://packagist.org/packages/ixudra/core)
 [![license](https://img.shields.io/github/license/ixudra/core.svg)]()
-[![StyleCI](https://styleci.io/repos/32549107/shield)](https://styleci.io/repos/32549107)
 [![Total Downloads](https://img.shields.io/packagist/dt/ixudra/core.svg?style=flat-square)](https://packagist.org/packages/ixudra/core)
 
-Custom PHP core library for the Laravel 5 framework - developed by [Ixudra](http://ixudra.be).
+
+![Ixudra Curl](https://www.ixudra.be/images/projects/I3uPMhfXE9sFGCaWbPWL.png)
+
+Custom PHP core library for the Laravel framework - developed by [Ixudra](https://ixudra.be).
 
 This package can be used by anyone at any given time, but keep in mind that it is optimized for my personal custom workflow. It may not suit your project perfectly and modifications may be in order.
 

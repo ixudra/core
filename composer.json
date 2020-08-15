@@ -1,15 +1,15 @@
 {
     "name": "ixudra/core",
-    "description": "Custom PHP Core library for the Laravel 6 framework - developed by Ixudra",
-    "version": "6.3.0",
+    "description": "Custom PHP Core library for the Laravel framework - developed by Ixudra",
+    "version": "6.4.0",
     "keywords": ["Ixudra", "Laravel", "Core", "Project"],
-    "homepage": "http://ixudra.be",
+    "homepage": "https://ixudra.be",
     "license": "MIT",
 
     "authors": [
         {
             "name": "Jan Oris",
-            "email": "jan.oris@gmail.com"
+            "email": "jan.oris@ixudra.be"
         }
     ],
 
