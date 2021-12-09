@@ -2,6 +2,10 @@
 
 All Notable changes to `ixudra/core` will be documented in this file
 
+## 6.5.0 2021-12-09
+### Added
+- PHP 8 support
+
 ## 6.4.0 2020-08-15
 ### Added
 - Laravel 7 support

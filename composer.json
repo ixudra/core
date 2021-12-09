@@ -1,7 +1,7 @@
 {
     "name": "ixudra/core",
     "description": "Custom PHP Core library for the Laravel framework - developed by Ixudra",
-    "version": "6.5.0",
+    "version": "6.6.0",
     "keywords": ["Ixudra", "Laravel", "Core", "Project"],
     "homepage": "https://ixudra.be",
     "license": "MIT",
@@ -14,7 +14,7 @@
     ],
 
     "require": {
-        "php": "^7.2",
+        "php": "^7.2|^8.0",
         "illuminate/support": ">=6.0",
         "laracasts/presenter": "0.2.*"
     },
