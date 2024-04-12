@@ -2,6 +2,10 @@
 
 All Notable changes to `ixudra/core` will be documented in this file
 
+## 6.7.0 2024-04-12
+### Added
+- Remove dependency on laracasts/presenters package due to inactivity
+
 ## 6.5.0 2021-12-09
 ### Added
 - PHP 8 support

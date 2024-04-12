@@ -1,11 +1,32 @@
 <?php namespace Ixudra\Core\Presenters;
 
 
-use Laracasts\Presenter\Presenter;
-
 use Translate;
 
-class BasePresenter extends Presenter {
+class BasePresenter {
+
+    protected $entity;
+
+    function __construct($entity)
+    {
+        $this->entity = $entity;
+    }
+
+
+    /**
+     * @param       $property
+     *
+     * @return mixed
+     */
+    public function __get($property)
+    {
+        if( method_exists($this, $property) ) {
+            return $this->{$property}();
+        }
+
+        return $this->entity->{$property};
+    }
+
 
     /**
      * Translate a boolean value into a translation string
