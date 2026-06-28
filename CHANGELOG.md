@@ -2,6 +2,10 @@
 
 All Notable changes to `ixudra/core` will be documented in this file
 
+## 6.8.0 2026-06-28
+### Added
+- Added support for array validation notation
+
 ## 6.7.0 2024-04-12
 ### Added
 - Remove dependency on laracasts/presenters package due to inactivity

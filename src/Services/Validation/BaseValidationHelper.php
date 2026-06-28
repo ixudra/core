@@ -76,7 +76,11 @@ abstract class BaseValidationHelper {
      */
     protected function isRequired($rule)
     {
-        $conditions = explode('|', $rule);
+        $conditions = $rule;
+        if( is_string($rule) ) {
+            $conditions = explode('|', $rule);
+        }
+
         if( in_array('required', $conditions) ) {
             return true;
         }
